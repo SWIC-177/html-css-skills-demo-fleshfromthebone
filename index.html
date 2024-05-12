@@ -20,11 +20,13 @@
       </h3>
       <p>
         Now you might be asking, "This looks shady as Hell" or "why are you
-        buying human skeletons?" Well the answer is don't worry about it. They
-        don't need those where they're going y'know what I mean?
+        buying human skeletons?" Well... don't worry about it. They don't need
+        those where they're going y'know what I mean?
       </p>
     </div>
-    <h2 class="text-md">The bone pile: Our cause.</h2>
+    <h1 class="text-md underline-offset-3 underline">
+      The bone pile: Our cause
+    </h1>
     <p>
       Here at the Skeletorium, we dedicate ourselves to those dedicated to the
       craft. Craft involving bones that is. Our dedicated community volunteers
@@ -37,12 +39,96 @@
         <li>Fresh bones</li>
         <li>Old bones</li>
         <li>Ancient Bones</li>
+        <li>Baby Bones</li>
+        <li>Lady Bones</li>
+        <li>Daddy Bones</li>
+        <li>YOUR bones(its ok only if you want to)</li>
       </ul>
-      <p class="text-sm font-thin">
-        For legal reasons, we must delare that we collect Human bones. Not
-        bodies. Any bones must be fully scaped clean of all meat and donated
-        properly to our bone boxes around the country.run
-      </p>
     </div>
+    <div>
+      <p>
+        Would you like to donate your bones post mortem? Enter your full name
+        and optional email/phone below. Don't worry about entering a home
+        address, we will find it.
+      </p>
+      <br />
+      <form id="myForm">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required />
+        <br /><br />
+        <label for="contactInfo">Contact Info:</label>
+        <input type="text" id="contactInfo" name="contactInfo" />
+        <br /><br />
+        <button
+          type="submit"
+          class="rounded-full bg-green-500 px-4 py-2 font-bold text-white hover:bg-green-700"
+        >
+          Submit
+        </button>
+      </form>
+
+      <script>
+        document
+          .getElementById("myForm")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+            const fullName = document.getElementById("fullName").value;
+            alert("Thanks for agreeing, " + fullName + "! See you soon :-)");
+          });
+      </script>
+    </div>
+    <br />
+    <div>
+      <label for="boneCount">Already have bones? Donate now!:</label><br />
+      <input type="number" id="boneCount" min="0" />
+      <button
+        onclick="validateBoneCount()"
+        class="rounded-full bg-green-500 px-4 py-2 font-bold text-white hover:bg-green-700"
+      >
+        Submit
+      </button>
+      <p>Bones donated: <span id="displayBoneCount">0</span></p>
+      <p>
+        Full Skeletons formed (every 206 in a body):
+        <span id="displaySkeletonCount">0</span>
+      </p>
+      <script>
+        let boneCount = 0;
+        let skeletonCount = 0;
+
+        function validateBoneCount() {
+          const input = document.getElementById("boneCount");
+          const boneInput = parseInt(input.value);
+
+          if (boneInput >= 0) {
+            boneCount += boneInput;
+            document.getElementById("displayBoneCount").textContent = boneCount;
+
+            skeletonCount = Math.floor(boneCount / 206);
+            document.getElementById("displaySkeletonCount").textContent =
+              skeletonCount;
+          } else {
+            alert("Please enter a non-negative number for the bone count.");
+          }
+
+          input.value = ""; // Clear input field after validation
+        }
+      </script>
+    </div>
+    <br />
+    <p class="text-sm font-thin">
+      For legal reasons, we must declare that we collect Human bones only. Not
+      bodies. Not Animals. Human bones completely clean of flesh. Any bones
+      donated with remaining tissue shall be taxed with the feasters' cleaning
+      fee. Or just pay for the shipping. We are also not responsible to loss of
+      limb, eye, or any vital parts when interfering with employees of the
+      Skeletorium Corporation,
+    </p>
+    <p class="text-sm font-thin">
+      Contact Info:<br />
+      Skeletorium HQ<br />
+      667 Eddie Ave.<br />
+      Phone: 800-968-3323
+    </p>
   </body>
 </html>
